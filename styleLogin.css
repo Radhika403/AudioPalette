@@ -1,0 +1,23 @@
+*{
+    background: linear-gradient(to bottom right, #B295E0, #F193D2, #FF99B3, #FFD270);
+    background-attachment: fixed;
+    color: white;
+}
+
+.login_center{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 10rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.login_button button{
+    align-items: center;
+    border: 2px solid white; /* Green */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    color: white;
+    padding: 15px 30px;
+    margin-top: 50px;
+}
