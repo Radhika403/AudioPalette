@@ -5,8 +5,11 @@
 }
 
 .login_center{
+    /* display: flex;
+    display: inline-block; */
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
+    
     margin-top: 10rem;
     font-size: 2rem;
     font-weight: 600;
@@ -22,47 +25,77 @@
     padding: 15px 30px;
     margin-top: 50px;
 }
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+  
+/* The typewriter cursor effect */
+/* @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(184, 176, 176); }
+} */
+
+@keyframes blinking {
+    0% {border-color: transparent}
+    50% {border-color: rgb(204, 201, 201)}
+    100% {border-color: transparent}
+}
+
+.login_text{
+    display: inline-block;
+}
+
 .login_center .first_row{
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .10em solid pink; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation:
-    typing 3.5s steps(40, end),
-    blink-caret .65s step-end;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .10em solid pink; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    /* letter-spacing: .15em; Adjust as needed */
+    animation:
+        typing 3s steps(30, end) forwards,
+        blinking 1s;
+    margin-bottom: 0rem;
 }
 
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
 
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: transparent; }
-}
 .login_center .second_row{
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .10em solid pink; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation:
-    typing 3.5s steps(40, end),
-    blink-caret .65s step-end;
+    opacity: 0;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .10em solid pink; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    /* letter-spacing: .15em; Adjust as needed */
+    animation:
+        typing 3s steps(30, end),
+        blinking 1s ;
+        opacity: 100;
+    animation-delay:3.5s;
 }
 
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+.login_center .third_row{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .10em solid pink; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    /* letter-spacing: .15em; Adjust as needed */
+    animation:
+        typing 3s steps(30, end),
+        blinking 1s ;
+    animation-delay:7s;
+    
 }
 
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: transparent; }
+.login_center .fourth_row{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .10em solid pink; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    /* letter-spacing: .15em; Adjust as needed */
+    animation:
+        typing 3s steps(30, end),
+        blinking 1s ;
+    animation-delay:10.5s;
 }
