@@ -1,4 +1,9 @@
 
+*{
+    background: linear-gradient(to bottom right, #B295E0, #F193D2, #FF99B3, #FFD270);
+    background-attachment: fixed;
+    color: white;
+}
 
 .opening_center{
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -17,7 +22,7 @@
 }
 
 .opening_center button{
-  border: 2px solid white; /* Green */
+  border: 4px solid white; /* Green */
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 2rem;
   color: white;

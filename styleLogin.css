@@ -14,10 +14,11 @@
 
 .login_button button{
     align-items: center;
-    border: 2px solid white; /* Green */
+    border: 4px solid white; /* Green */
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 2rem;
     color: white;
+    font-weight: 600;
     padding: 15px 30px;
     margin-top: 50px;
 }
