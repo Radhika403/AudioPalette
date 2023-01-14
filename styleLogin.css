@@ -79,6 +79,7 @@
         fadeIn 3s,
         opacity 100;
     animation-delay:3.5s;
+    margin-bottom: 3rem;
 }
 
 .login_center .third_row{
