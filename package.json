@@ -1,0 +1,16 @@
+{
+  "name": "audiopalette",
+  "version": "1.0.0",
+  "description": "Webapp for judging your music taste",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Purvi Chaurasia",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
