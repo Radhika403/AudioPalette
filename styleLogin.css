@@ -14,6 +14,7 @@
 }
 
 .login_button button{
+    opacity: 0;
     align-items: center;
     border: 4px solid white; 
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -22,6 +23,10 @@
     font-weight: 600;
     padding: 15px 30px;
     margin-top: 50px;
+    animation:
+        fadeIn 1s;
+    animation-delay:10s;
+    animation-fill-mode: forwards;
 }
 
 /* The typing effect */
@@ -51,9 +56,9 @@
     white-space: nowrap;               /* Keeps the content on a single line */
     margin: 0 auto;                    /* Gives that scrolling effect as the typing happens */
     animation:
-        typing 3s steps(30, end) forwards,
+        typing 2.5s steps(30, end) forwards,
         blinking 1s,
-        fadeIn 3s;
+        fadeIn 2.5s;
     margin-bottom: 0rem;
 }
 
@@ -65,10 +70,10 @@
     white-space: nowrap; 
     margin: 0 auto; 
     animation:
-        typing 3s steps(30, end),
+        typing 2.5s steps(30, end),
         blinking 1s,
-        fadeIn 3s;
-    animation-delay:3s;
+        fadeIn 2.5s;
+    animation-delay:2.5s;
     animation-fill-mode: forwards;
     margin-bottom: 3rem;
 }
@@ -80,10 +85,10 @@
     white-space: nowrap; 
     margin: 0 auto; 
     animation:
-        typing 3s steps(30, end),
+        typing 2.5s steps(30, end),
         blinking 1s,
-        fadeIn 3s;
-    animation-delay:6s;
+        fadeIn 2.5s;
+    animation-delay:5s;
     animation-fill-mode: forwards;
 }
 
@@ -94,9 +99,9 @@
     white-space: nowrap; 
     margin: 0 auto;
     animation:
-        typing 3s steps(30, end),
+        typing 2.5s steps(30, end),
         blinking 1s,
-        fadeIn 3s;
+        fadeIn 2.5s;
     animation-fill-mode: forwards;
-    animation-delay:9s;
+    animation-delay:7.5s;
 }
