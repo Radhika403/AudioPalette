@@ -10,8 +10,6 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
 
-// console.log(proces s.env.CLIENT_ID)
-
 app.get('/', (req, res) =>{
     res.send("hi");
 });
@@ -38,7 +36,7 @@ app.get('/login', (req, res) => {
     const state = generateRandomString(16);
     res.cookie(stateKey, state);
 
-    const scope = 'user-read-private user-read-email';
+    const scope = 'user-read-private user-read-email user-top-read';
 
     const queryParams = querystring.stringify({
         client_id: CLIENT_ID,
@@ -51,8 +49,8 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/callback', (req, res) => {
-    const code = req.query.code || null; // authorisation code to geenrate token
-    
+    const code = req.query.code || null;
+  
     axios({
       method: 'post',
       url: 'https://accounts.spotify.com/api/token',
@@ -68,62 +66,78 @@ app.get('/callback', (req, res) => {
     })
     .then(response => {
         if (response.status == 200) {
-    
           const { access_token, token_type } = response.data;
-    
-          axios.get('https://api.spotify.com/v1/me', {
+
+          axios.get('https://api.spotify.com/v1/me/', {
             headers: {
               Authorization: `${token_type} ${access_token}`
             }
           })
             .then(response => {
-              res.send(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`);
+              res.write(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`);
+            })
+            .catch(error => {
+              console.log(error);
+            });
+          
+          axios.get('https://api.spotify.com/v1/me/top/artists', {
+            headers: {
+              Authorization: `${token_type} ${access_token}`
+            }
+          })
+            .then(response => {
+              res.write(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`);
             })
             .catch(error => {
               console.log(error);
             });
 
-          // axios.get(`http://localhost:8888/refresh_token?refresh_token=${refresh_token}`) 
-          //   .then(response => {
-          //     res.send(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`);
-          //   })
-          //   .catch(error => {
-          //     console.log(error);
-          //   });
-          
-    
+            axios.get('https://api.spotify.com/v1/me/top/tracks', {
+            headers: {
+              Authorization: `${token_type} ${access_token}`
+            }
+          })
+            .then(response => {
+              res.write(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`);
+              res.end();
+            })
+            .catch(error => {
+              console.log(error);
+            });
+
         } else {
           res.send(response);
         }
+        
       })
       .catch(error => {
         console.log(error);
       });
   });
 
-  // app.get('/refresh_token', (req, res) => {
-  //   const { refresh_token } = req.query;
+  app.get('/refresh_token', (req, res) => {
+    const { refresh_token } = req.query;
   
-  //   axios({
-  //     method: 'post',
-  //     url: 'https://accounts.spotify.com/api/token',
-  //     data: querystring.stringify({
-  //       grant_type: 'refresh_token',
-  //       refresh_token: refresh_token
-  //     }),
-  //     headers: {
-  //       'content-type': 'application/x-www-form-urlencoded',
-  //       Authorization: `Basic ${new Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')}`,
-  //     },
-  //   })
-  //     .then(response => {
-  //       res.send(response.data);
-  //     })
-  //     .catch(error => {
-  //       res.send(error);
-  //     });
-  // });
+    axios({
+      method: 'post',
+      url: 'https://accounts.spotify.com/api/token',
+      data: querystring.stringify({
+        grant_type: 'refresh_token',
+        refresh_token: refresh_token
+      }),
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        Authorization: `Basic ${new Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')}`,
+      },
+    })
+      .then(response => {
+        res.send(response.data);
+      })
+      .catch(error => {
+        res.send(error);
+      });
+  });
 
 app.listen(port, () => {
-    console.log(`Express is listening at http://localhost:${port}`);
+    console.log("Express is listening at 8888");
 })
