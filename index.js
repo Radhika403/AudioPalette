@@ -78,7 +78,7 @@ app.get('/callback', (req, res) => {
           .then(response => {
             res.write(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`);
             // rescurl -o file.JSON response.data
-            filesystem.writeFileSync('response.json', JSON.stringify(response.data), function (err) {
+            filesystem.writeFileSync('/Users/radhika/Desktop/AudioProject/AUDIO_PALLETE/src/Components/userDetails.json', JSON.stringify(response.data), function (err) {
               console.log(err);
             })
           })
@@ -93,7 +93,7 @@ app.get('/callback', (req, res) => {
         })
           .then(response => {
             res.write(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`);
-            filesystem.appendFileSync('response.json', JSON.stringify(response.data), function (err) {
+            filesystem.writeFileSync('/Users/radhika/Desktop/AudioProject/AUDIO_PALLETE/src/Components/artistDetails.json', JSON.stringify(response.data), function (err) {
               console.log(err);
             })
           })
@@ -108,7 +108,7 @@ app.get('/callback', (req, res) => {
         })
           .then(response => {
             res.write(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`);
-            filesystem.appendFileSync('response.json', JSON.stringify(response.data), function (err) {
+            filesystem.writeFileSync('/Users/radhika/Desktop/AudioProject/AUDIO_PALLETE/src/Components/trackDetails.json', JSON.stringify(response.data), function (err) {
               console.log(err);
             })
             res.end();
